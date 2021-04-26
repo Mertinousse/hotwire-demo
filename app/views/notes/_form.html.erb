@@ -1,7 +1,7 @@
 <%= form_with model: note, url: note.new_record? ? notes_path : note_path(note) do |f| %>
   <% if note.errors.any? %>
-    <%= note.errors.full_messages %>
+    <%= note.errors.full_messages.join(', ') %>
   <% end %>
   <%= f.text_field :text, autocomplete: :off %>
-  <%= f.submit %>
+  <%= f.submit 'Save' %>
 <% end %>

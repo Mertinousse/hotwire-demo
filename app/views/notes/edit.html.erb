@@ -1,5 +1,7 @@
 <h2>Edit note</h2>
 
-<%= render 'form', note: @note %>
+<%= turbo_frame_tag @note.to_turbo_frame_id do %>
+  <%= render 'form', note: @note %>
+<% end %>
 
 <%= link_to 'Back', notes_path %>

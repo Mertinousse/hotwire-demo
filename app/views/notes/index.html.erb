@@ -1,7 +1,8 @@
 <h2>My notes</h2>
 
-<%= link_to 'Add note', new_note_path %>
-
 <ul>
   <%= render @notes %>
+  <%= turbo_frame_tag Note.new.to_turbo_frame_id, src: new_note_path, target: '_top' do %>
+    Loading...
+  <% end %>
 </ul>
