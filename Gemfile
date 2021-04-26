@@ -8,6 +8,7 @@ gem 'sqlite3'
 gem 'puma'
 gem 'hotwire-rails'
 gem 'bootsnap', require: false
+gem 'jquery-rails'
 gem 'sass-rails'
 
 group :development, :test do

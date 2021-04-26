@@ -1,0 +1,4 @@
+<li>
+  <%= link_to note.text, edit_note_path(note) %>
+  <%= button_to 'Remove', note_path(note), method: :delete %>
+</li>
