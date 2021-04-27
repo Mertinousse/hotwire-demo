@@ -3,5 +3,5 @@
     <%= note.errors.full_messages.join(', ') %>
   <% end %>
   <%= f.text_field :text, autocomplete: :off %>
-  <%= f.submit 'Save' %>
+  <%= f.submit note.new_record? ? 'Add' : 'Save' %>
 <% end %>
