@@ -1,9 +1,13 @@
-<%= turbo_frame_tag note.to_turbo_frame_id do %>
-  <%= link_to edit_note_path(note) do %>
-    <li>
-      <%= note.text %>
-    </li>
+<div data-controller='note'>
+  <%= turbo_frame_tag note.to_turbo_frame_id do %>
+    <%= link_to edit_note_path(note), data: { action: 'click->note#hideRemoveButton' } do %>
+      <li>
+        <%= note.text %>
+      </li>
+    <% end %>
   <% end %>
-<% end %>
-<%= button_to 'Remove', note_path(note), method: :delete %>
-<br>
+  <div data-note-target='removeButton'>
+    <%= button_to 'Remove', note_path(note), method: :delete %>
+  </div>
+  <br>
+</div>
