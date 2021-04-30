@@ -1,13 +1,9 @@
-<div data-controller='note'>
+<li>
   <%= turbo_frame_tag note.to_turbo_frame_id do %>
-    <%= link_to edit_note_path(note), data: { action: 'click->note#hideRemoveButton' } do %>
-      <li>
-        <%= note.text %>
-      </li>
-    <% end %>
+    <div data-controller='note'>
+      <%= link_to note.text, edit_note_path(note), data: { 'note-target': 'text' } %>
+      <%= button_to 'Remove', note_path(note), method: :delete, form: { data: { 'turbo-frame': '_top' } } %>
+    </div>
   <% end %>
-  <div data-note-target='removeButton'>
-    <%= button_to 'Remove', note_path(note), method: :delete %>
-  </div>
-  <br>
-</div>
+</li>
+<br>

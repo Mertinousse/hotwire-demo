@@ -1,16 +1,13 @@
-import { Controller } from "stimulus"
+import { Controller } from 'stimulus';
 
 export default class extends Controller {
-  static targets = ["removeButton"];
+  static targets = ['text'];
 
   connect() {
+    setInterval(() => this.changeColor(), 500);
   }
 
-  hideRemoveButton() {
-    this.removeButtonTarget.style.display = 'none';
-  }
-
-  showRemoveButton() {
-    this.removeButtonTarget.style.display = 'block';
+  changeColor() {
+    this.textTarget.style.color = '#' + Math.floor(Math.random()*16777215).toString(16);
   }
 }
